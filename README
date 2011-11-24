@@ -1,1 +1,13 @@
 Модуль для Kohana, предназначенный для работы с uLogin
+
+Установка:
+1. Создать таблицу ulogins:
+CREATE TABLE `ulogins` (
+	`id` INT(10) NOT NULL AUTO_INCREMENT,
+	`user_id` INT(11) NOT NULL,
+	`network` VARCHAR(255) NOT NULL,
+	`identity` VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `identity` (`identity`)
+)
+2. Добавить 'ulogins' => array(), в protected $_has_many у модели user
