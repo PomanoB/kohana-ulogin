@@ -1,7 +1,7 @@
-Ìîäóëü äëÿ Kohana, ïðåäíàçíà÷åííûé äëÿ ðàáîòû ñ uLogin
+ÐœÐ¾Ð´ÑƒÐ»ÑŒ Ð´Ð»Ñ Kohana, Ð¿Ñ€ÐµÐ´Ð½Ð°Ð·Ð½Ð°Ñ‡ÐµÐ½Ð½Ñ‹Ð¹ Ð´Ð»Ñ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ Ñ uLogin
 
-Óñòàíîâêà:
-1. Ñîçäàòü òàáëèöó ulogins:
+Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ°:
+1. Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñƒ ulogins:
 CREATE TABLE `ulogins` (
 	`id` INT(10) NOT NULL AUTO_INCREMENT,
 	`user_id` INT(11) NOT NULL,
@@ -10,4 +10,4 @@ CREATE TABLE `ulogins` (
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `identity` (`identity`)
 )
-2. Äîáàâèòü 'ulogins' => array(), â protected $_has_many ó ìîäåëè user
+2. Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ 'ulogins' => array(), Ð² protected $_has_many Ñƒ Ð¼Ð¾Ð´ÐµÐ»Ð¸ user
