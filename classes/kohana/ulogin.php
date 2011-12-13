@@ -118,7 +118,7 @@ class Kohana_Ulogin {
 		
 		if (!$ulogin->loaded())
 		{
-			if (($orm_user = Auth::instance()->get_user()) !== NULL)
+			if (($orm_user = Auth::instance()->get_user()))
 			{
 				$user['user_id'] = $orm_user->id;
 				$ulogin->values($user, array(
