@@ -39,7 +39,7 @@ class Kohana_Ulogin {
 		'optional'		=> array(),
 	);
 	
-	protected static $_used_id = array();	
+	protected static $_used_id = array();
 	
 	public static function factory(array $config = array())
 	{
@@ -63,29 +63,21 @@ class Kohana_Ulogin {
 			'&hidden='.implode(',', $this->config['hidden']).
 			'&redirect_uri='.$this->config['redirect_uri'].
 			'&optional='.implode(',', $this->config['optional']);
-			
-		if (count(self::$_used_id) == 0)
-		{
-			$view = View::factory('ulogin/first');
-			
-			self::$_used_id[] = 'uLogin';
-		}
-		else
-		{
-			$view = View::factory('ulogin/second');
-			
-			do
-			{
-				$uniq_id = "uLogin_".rand();
-			}
-			while(in_array($uniq_id, self::$_used_id));
-			
-			self::$_used_id[] = $uniq_id;
-			
-			$view->set('uniq_id', $uniq_id);
-		}
 		
-		return $view->set('cfg', $this->config)->set('params', $params)->render();
+		$view = View::factory('ulogin/ulogin')
+					->set('cfg', $this->config)
+					->set('params', $params);
+		do
+		{
+			$uniq_id = "uLogin_".rand();
+		}
+		while(in_array($uniq_id, self::$_used_id));
+		
+		self::$_used_id[] = $uniq_id;
+		
+		$view->set('uniq_id', $uniq_id);
+		
+		return $view->render();
 	}
 	
 	public function __toString()
